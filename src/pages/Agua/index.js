@@ -10,7 +10,7 @@ export default function SplashScreen() {
   const [resultado, setResultado] = useState(0);
   const [quantidade, setQuantidade] = useState(0);
 
-  // Criando refs para controlar animação dos botões
+
   const scaleCopo = useRef(new Animated.Value(1)).current;
   const scaleGarrafa = useRef(new Animated.Value(1)).current;
   const scaleGalao = useRef(new Animated.Value(1)).current;
@@ -25,7 +25,7 @@ export default function SplashScreen() {
   const copo = () => setQuantidade(quantidade + 200);
   const galao = () => setQuantidade(quantidade + 800);
 
-  // Função genérica para animar botão
+  
   const animarBotao = (scaleRef, callback) => {
     Animated.sequence([
       Animated.timing(scaleRef, {
@@ -87,29 +87,29 @@ export default function SplashScreen() {
           style={styles.botao}
         >
           <Animated.Image
-            source={require("../../../assets/copo.png")}
+            source={require("../../../assets/images/copo.png")}
             style={[styles.copo, { transform: [{ scale: scaleCopo }] }]}
           />
         </Pressable>
 
-        {/* Botão Garrafa */}
+        
         <Pressable
           onPress={() => animarBotao(scaleGarrafa, garrafa)}
           style={styles.botao}
         >
           <Animated.Image
-            source={require("../../../assets/garraf1.png")}
+            source={require("../../../assets/images/garraf1.png")}
             style={[styles.garrafa, { transform: [{ scale: scaleGarrafa }] }]}
           />
         </Pressable>
 
-        {/* Botão Galão */}
+       
         <Pressable
           onPress={() => animarBotao(scaleGalao, galao)}
           style={styles.botao}
         >
           <Animated.Image
-            source={require("../../../assets/ga.png")}
+            source={require("../../../assets/images/ga.png")}
             style={[styles.galao, { transform: [{ scale: scaleGalao }] }]}
           />
         </Pressable>
